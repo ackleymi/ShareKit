@@ -30,6 +30,13 @@ Pod::Spec.new do |s|
     reachability.source_files = 'Classes/ShareKit/Reachability/**/*.{h,m}'
     reachability.requires_arc = false
   end
+  
+  s.subspec 'NoARC' do |noarc|
+    noarc.dependency 'PKMultipartInputStream'
+    noarc.requires_arc = false
+    noarc.source_files = non_arc_files
+    noarc.dependency 'ShareKit/Core'
+  end
 
   s.subspec 'Evernote' do |evernote|
     evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
